@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:#CCC;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.col-sm-paddingZero{
+	padding:0px;
+}
+
+.special-margin-bottom-margin{
+	margin-bottom: 20px;
+}
+
+a{cursor: pointer;}

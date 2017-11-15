@@ -1,0 +1,46 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="chatroom">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Node/Angular Todo App</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css"><!-- load bootstrap -->
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <!-- SPELLS -->
+    <script src="/jquery/dist/jquery.min.js"></script><!-- load jquery -->
+    <script src="/angular/angular.min.js"></script><!-- load angular -->
+    <script src="javascripts/core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="mainController">
+
+    <nav class="special-margin-bottom-margin">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">welcome {{ nickname }}</a>
+        </div>
+        <ul class="navbar-brand list-unstyled pull-right">
+          <li><a ng-click="LogOut()" class='btn btn-danger btn-xs'>LogOut</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="col-sm-12 col-sm-paddingZero">
+        <div class='col-sm-4 col-xs-2'>
+           <ul class='list-group'>
+               <li ng-repeat='ct in contact' class='list-group-item'><a ng-click='getMessage(ct.to)'>{{ ct.to }}</a></li>
+           </ul> 
+        </div>
+        <div class='col-sm-8 col-xs-10 well'></div>
+    </div>
+
+
+</body>
+</html>
