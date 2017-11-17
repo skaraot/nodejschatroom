@@ -16,4 +16,26 @@ a {
 	margin-bottom: 20px;
 }
 
+.special-alert-message {
+    width: fit-content;
+    padding: 5px;
+    margin-bottom:4px;
+}
+
+.message-area{
+	border-radius: 5px;
+    position: fixed;
+    bottom: 10px;
+    width:58%;
+}
+
+.message-list-block-height{
+	height: -webkit-fill-available;
+}
+
+.small-text{
+	margin-top:5px;
+	font-size:8px;
+}
+
 a{cursor: pointer;}

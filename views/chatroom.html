@@ -38,7 +38,23 @@
                <li ng-repeat='ct in contact' class='list-group-item'><a ng-click='getMessage(ct.to)'>{{ ct.to }}</a></li>
            </ul> 
         </div>
-        <div class='col-sm-8 col-xs-10 well'></div>
+        <div class='col-sm-8 col-xs-10 well message-list-block-height'>
+               
+           <div ng-repeat='mg in message' class='row'>
+                <span class='alert alert-success clearfix special-alert-message' ng-class="mg.from==nickname ? 'pull-right' : 'pull-left'">
+                {{ mg.message }}
+                <div class='small-text text-danger'>{{ mg.time | date:'HH:mm:ss Z'}}</div>
+                </span>
+            </div>
+            <div>
+                <div class="input-group message-area">
+                    <input type="text" class="form-control" placeholder="new message" name="ms" id='postMessage' ng-model="messageText">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit" ng-click="setMessage()"><i class="glyphicon glyphicon-send"></i></button>
+            </div>
+        </div>
+            </div>    
+        </div>
     </div>
 
 

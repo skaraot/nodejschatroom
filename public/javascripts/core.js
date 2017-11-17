@@ -6,6 +6,7 @@ chatroom.controller ('mainController', function($scope, $http, $window, $locatio
 	$relatedURL = 'http://127.0.0.1:3000/';
 	$session = false;
 	$nickname = 'deny';
+	$toSource = '';
 	
 	$http({
 	  method: 'GET',
@@ -34,6 +35,7 @@ chatroom.controller ('mainController', function($scope, $http, $window, $locatio
 		$window.location.href = $relatedURL + 'logout';
 	}
 
+
 	var getContact = function(){
 		$scope.contact = [];
 		$http({
@@ -49,7 +51,34 @@ chatroom.controller ('mainController', function($scope, $http, $window, $locatio
 		);
 	}
 
-	$scope.getMessage = function(fromName){
-		console.log(fromName);
+	$scope.getMessage = function(toName){
+		$scope.message = [];
+		$http({
+			method: 'GET',
+			url: $relatedURL+'messageList?from='+$nickname+'&to='+toName
+		}).then(
+			function successCallback(response){
+				$scope.message = response.data.sonuc;
+				$toSource = toName;
+			},
+			function errorCallback(response){
+				console.log('Error: ' + response);
+			}
+		);
 	};
+
+	$scope.setMessage = function(){
+		console.log($scope.messageText);
+		$http({
+			method: 'GET',
+			url: $relatedURL+'messageAdd?from='+$nickname+'&to='+$toSource+'&message='+$scope.messageText
+		}).then(
+			function successCallback(response){
+				$scope.getMessage($toSource);
+			},
+			function errorCallback(response){
+				console.log('Error: ' + response);
+			}
+		);
+	}
 });

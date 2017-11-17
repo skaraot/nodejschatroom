@@ -48,11 +48,11 @@ module.exports = function(server){
         var from = req.query.from;
         var to = req.query.to
 
-        var sqlQuery = "SELECT `message`, `from`, `to`, `zaman` from message where `from` = ? and `to` = ?";
+        var sqlQuery = "SELECT `message`, `from`, `to`, `zaman` from message where ( `from` = ? and `to` = ? ) or ( `from` = ? and `to` = ? ) order by zaman asc";
 
         var returnData = [];
 
-        getConnection.query(sqlQuery, [from, to], function(error, results, fields){
+        getConnection.query(sqlQuery, [from, to, to, from], function(error, results, fields){
             if (error){
                 console.log(error);
                 res.json({sonuc:'false'});
