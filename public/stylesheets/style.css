@@ -31,6 +31,7 @@ a {
 
 .message-list-block-height{
 	height: -webkit-fill-available;
+	overflow-y: scroll;
 }
 
 .small-text{
